@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    tools:context=".ui.main.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp72"
+        android:background="@drawable/gradient"
+        android:padding="@dimen/dp16">
+
+        <TextView
+            style="@style/PageTitleText"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/todo" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/sw_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_marginTop="-16dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/body_drawable">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp16"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/title"
+                    android:text="@string/title" />
+                <EditText
+                    android:id="@+id/et_title"
+                    style="@style/PrimaryEdittextStyle"
+                    android:hint="@string/title_hint"
+                    android:inputType="text" />
+
+                <TextView
+                    style="@style/title"
+
+                    android:text="@string/description" />
+                <EditText
+                    android:id="@+id/et_description"
+                    style="@style/PrimaryEdittextStyle"
+                    android:hint="@string/description_hint"
+                    android:inputType="textMultiLine" />
+
+                <Button
+                    android:id="@+id/bt_add_task"
+                    android:text="@string/add_task"
+                    android:layout_marginTop="@dimen/dp24"
+                    style="@style/PrimaryButtonStyle" />
+
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/note_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:nestedScrollingEnabled="true"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/single_note_item" />
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+</LinearLayout>
